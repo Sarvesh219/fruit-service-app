@@ -1,0 +1,11 @@
+<div class="list-group">
+  <a
+      *ngFor="let fruit of fruitList; let i = index;"
+      class="list-group-item list-group-item-action"
+      (click)="onSelectFruit($event, fruit, i)"
+      href=""
+      [ngClass]="{active: selectedIndex === i}"
+  >
+    {{ fruit.name }}
+  </a>
+</div>

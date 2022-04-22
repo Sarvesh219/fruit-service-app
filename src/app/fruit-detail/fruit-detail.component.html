@@ -1,0 +1,8 @@
+<section>
+    <p *ngIf="!selectedFruit; else fruit_present">
+        Please select a fruit!
+    </p>
+    <ng-template #fruit_present>
+        <p>{{ selectedFruit.name }} - {{ selectedFruit.description }}</p>
+    </ng-template>
+</section>
