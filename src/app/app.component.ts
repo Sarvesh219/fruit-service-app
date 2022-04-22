@@ -33,5 +33,6 @@ export class AppComponent implements OnInit {
     this.fruitService.addFruit(fruit);
     this.fruitName = '';
     this.fruitDescription = '';
+    console.log('Git Push Test');
   }
 }
