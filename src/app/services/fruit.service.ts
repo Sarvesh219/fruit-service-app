@@ -14,6 +14,7 @@ export class FruitService {
   ];
   selectedFruit!: Fruit;
   selectedFruitChanged = new Subject<Fruit>();
+  fruitListChanged = new Subject<Fruit[]>();
 
   constructor() { }
 
@@ -24,5 +25,10 @@ export class FruitService {
   selectFruit(fruit: Fruit): void {
     this.selectedFruit = fruit;
     this.selectedFruitChanged.next(this.selectedFruit);
+  }
+
+  addFruit(fruit: Fruit): void {
+    this.fruitList.push(fruit);
+    this.fruitListChanged.next(this.fruitList.slice());
   }
 }
