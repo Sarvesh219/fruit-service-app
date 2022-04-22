@@ -17,11 +17,11 @@ export class FruitService {
 
   constructor() { }
 
-  getFruitList() {
+  getFruitList(): Fruit[] {
     return this.fruitList.slice();
   }
 
-  selectFruit(fruit: Fruit) {
+  selectFruit(fruit: Fruit): void {
     this.selectedFruit = fruit;
     this.selectedFruitChanged.next(this.selectedFruit);
   }

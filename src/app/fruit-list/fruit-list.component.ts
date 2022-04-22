@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Fruit } from '../app.component';
 import { FruitService } from '../services/fruit.service';
 
@@ -9,7 +9,6 @@ import { FruitService } from '../services/fruit.service';
 })
 export class FruitListComponent implements OnInit {
   fruitList: Fruit[] = [];
-  @Output() selectFruit = new EventEmitter<Fruit>();
   selectedIndex!: number;
 
   constructor(private fruitService: FruitService) { }
