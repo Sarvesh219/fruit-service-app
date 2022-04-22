@@ -6,7 +6,7 @@ import { FruitService } from '../services/fruit.service';
 @Component({
   selector: 'app-fruit-list',
   templateUrl: './fruit-list.component.html',
-  styleUrls: ['./fruit-list.component.scss']
+  styleUrls: ['./fruit-list.component.scss'],
 })
 export class FruitListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
@@ -14,17 +14,20 @@ export class FruitListComponent implements OnInit, OnDestroy {
   selectedIndex!: number;
 
   constructor(private fruitService: FruitService) {
-    this.subscription = this.fruitService.fruitListChanged.subscribe((fruits: Fruit[]) => {
-      this.fruitList = fruits;
-    });
+    this.subscription = this.fruitService.fruitListChanged.subscribe(
+      (fruits: Fruit[]) => {
+        this.fruitList = fruits;
+      }
+    );
   }
 
   ngOnInit(): void {
     this.fruitList = this.fruitService.getFruitList();
+    console.log('Hello This is a test');
   }
 
   ngOnDestroy(): void {
-      this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   onSelectFruit(event: Event, fruit: Fruit, index: number): void {
