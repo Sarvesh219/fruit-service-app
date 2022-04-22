@@ -9,7 +9,7 @@ export interface Fruit {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   fruitName: string = '';
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   constructor(private fruitService: FruitService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   getButtonDisabled(): boolean {
     if (!this.fruitName.length && !this.fruitDescription.length) return true;
@@ -26,9 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   addFruit(): void {
-    const fruit: Fruit = { name: this.fruitName, description: this.fruitDescription };
+    const fruit: Fruit = {
+      name: this.fruitName,
+      description: this.fruitDescription,
+    };
     this.fruitService.addFruit(fruit);
     this.fruitName = '';
     this.fruitDescription = '';
+    console.log(220, 'sdfsdd');
   }
 }
